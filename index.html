@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integrador_II</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://kit.fontawesome.com/48c1f129e4.js" crossorigin="anonymous"></script>
+    <!-- Machine Learning -->
+    <script src="../dependencies/browser.js"></script>
+</head>
+<body>
+    <header class="headerIndex">
+        <div class="logo"><a href="../html/index.html"><h2>INT_NEWS</h2></a></div>
+        <div class="busqueda">
+            <div class="barraBuscar">
+                <form action="#" autocomplete="off">
+                    <input type="text" placeholder="¿Que noticia estas buscando...?" name="buscar" id="buscar" required>
+                    <button id="buscarBarra" type="button"><i class="fa fa-search" style="font-size: 16px;"></i></button>
+                </form>
+            </div>
+        </div>
+        <nav class="menu">
+            <ul class="menu">
+                <li class="opciones"><a href="#" ><i class="fa-regular fa-heart mdl"></i>Mis destacadas</a></li>
+                <li class="opciones"><a href="#" ><i class="fa-solid fa-user-astronaut"></i>Mi Cuenta</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="contenedor">
+        <div class="banner">
+            <div class="texto-banner">
+                <div class="texto">
+                    <h1 class="nombre">INT NEWS</h1>
+                    <h2 class="descripcion">Tu portal de noticias</h2>
+                </div>
+            </div>
+        </div>
+        <div class="contenido" id="app">
+            <p class="resultado">Resultados de: <span>Deporte Colombiano</span></p>
+            <div class="vitrina">
+                <div class="noticias" id="noticias">
+                    <div class="noticia">
+                        <div class="thumb">
+                            <img src="https://www.eltiempo.com/files/article_main/files/crop/uploads/2022/09/21/632bae5b0b095.r_1663816505403.0-0-1280-641.jpeg" alt="noticia1" height="250">
+                        </div>
+                        <div class="informacion">
+                            <h3 class="tituloNoticias">Titulo Noticia</h3>
+                            <p class="fuente">Q'Hubo</p>
+                            <p class="categoria">Gente</p>                            
+                            <p class="fecha"><i class="fa-regular fa-clock"></i> 21 DE SEPTIEMBRE DE 2022</p>
+                        </div>
+                    </div>  
+
+                    <div class="noticia">
+                        <div class="thumb">
+                            <img src="https://qhubobucaramanga.com/wp-content/uploads/2022/09/colp-ext-114943-2c27c_7470772_20220920143032.jpg" alt="noticia1" height="250">
+                        </div>
+                        <div class="informacion">
+                            <h3 class="tituloNoticias">Titulo noticia #1</h3>
+                            <p class="fuente">El Tiempo</p>
+                            <p class="categoria">Politica</p>
+                            <p class="fecha"><i class="fa-regular fa-clock"></i> 21 DE SEPTIEMBRE DE 2022</p>
+                        </div>
+                        
+                    </div> 
+
+                    <div class="noticia">
+                        <div class="thumb">
+                            <img src="https://www.eltiempo.com/files/article_main/uploads/2022/09/21/632b674fe76fa.jpeg" alt="noticia1" height="250">
+                        </div>
+                        <div class="informacion">
+                            <h3 class="tituloNoticias">Titulo noticia #1</h3>
+                            <p class="fuente">ADN</p>
+                            <p class="categoria">Deportes</p>
+                            <p class="fecha"><i class="fa-regular fa-clock"></i> 21 DE SEPTIEMBRE DE 2022</p>
+                        </div>
+                        
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="col1">
+            <h2>Universidad Pontificia Bolivariana</h2>
+            <h3>PROYECTO INTEGRADOR II - 2022-20</h3>
+            <h4>Docente: <span>Danith Solorzano</span></h4>
+            <a href="" class="git"><i class="fa-brands fa-square-github"></i></a>
+        </div>
+
+        <div class="col2">
+            <h3>Integrantes:</h3>
+            <ul class="integrantes">
+                <li>David Sepulveda</li>
+                <li>David Velasco</li>
+                <li>Javier Guevara</li>
+                <li>Daniel Gomez</li>
+                <li>Gleisson Perez</li>
+            </ul>
+        </div>
+    </footer>
+    <!-- Scripts -->
+    <script src="bundle.js"></script>
+</body>
+</html>

@@ -1,22 +1,13 @@
-const express = require('express');
-const morgan = require('morgan');
-const path = require('path');
-const app = express();
-const { mongoose } = require('./database');
+import React from "react";
+import { render } from "react-dom";
+import App from './App';
 
-// Settins
-app.set('port', process.env.PORT || 3000);
+import { createRoot } from 'react-dom/client';
 
-// Middlewares
-app.use(morgan('dev'));
-app.use(express.json());
+const container = document.getElementById('app');
 
-// Routers
-app.use('/api/news', require('./routes/news.routes'));
+const root = createRoot(container);
 
-// Statics files
-app.use(express.static(path.join(__dirname, 'public')));
+// App.addUrl();
 
-app.listen(app.get('port'), () =>{
-    console.log(`Server on port ${app.get('port')}`);
-});
+root.render(<App tab="home" />);
