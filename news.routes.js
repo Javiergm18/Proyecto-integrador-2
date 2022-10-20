@@ -17,7 +17,7 @@ const fechaHoy = fechaDate.getFullYear() +"-"+ mes + "-" + dia;
 
 const Notice = require('../models/news');
 
-router.get('/', async (req, res) => {
+router.get('/news', async (req, res) => {
     const news = await Notice.find({fecha: fechaHoy});
     if(news.length === 0){
         let fechaAyer = calculateDate();
@@ -26,6 +26,13 @@ router.get('/', async (req, res) => {
     }else{
         res.json(news);
     }
+});
+
+router.post('/search', async (req, res) => {
+    let fechaAyer = calculateDate();
+    let busqueda = req.body.query;
+    const news = await Notice.find({$and: [{$or: [{fecha: fechaHoy}, {fecha: fechaAyer}]}, {$or: [{titulo: new RegExp(busqueda, "i")}, {categoria: new RegExp(busqueda, "i")}]}]});
+    res.json(news);
 });
 
 function calculateDate(){
