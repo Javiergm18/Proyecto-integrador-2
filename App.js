@@ -10,29 +10,34 @@ class App extends Component {
         this.getNews();
         this.state = {
             news: [],
-            search: document.getElementById('buscar')
+            search: document.getElementById('buscar'),
+            script: "Las mejores noticias"
         }
         this.btnBuscar.addEventListener('click', this.buscar);
         this.render();
-        // this.addUrl();
     }
 
-    addUrl() {
-        alert('prueba');
-        console.log('prueba');
-        this.state.news.map(notice => {
-            let id = notice._id;
-            let temp = document.getElementById(id);
-            let url = notice.url;
-            temp.addEventListener('click', () => {
-                alert('prueba');
-                window.open(url, '_blank');
-            })
+    buscar = async () => {
+        await fetch('/api/search', {
+            method: 'POST',
+            body: JSON.stringify({ query: this.buscardor.value }),
+            headers: {
+                "Content-type": "application/json"
+            }
         })
-    }
-
-    buscar = () => {
-        console.log(this.buscardor.value);
+            .then(res => res.json())
+            .then(data => {
+                if(data.length != 0){
+                    this.setState({ news: data })
+                    this.state.script = "Resultados similares a su búsqueda: " + this.buscardor.value
+                }else{
+                    this.getNews();
+                    this.state.script = "Las mejores noticias";
+                    this.buscardor.value = '';
+                }
+            })
+            .catch(err => console.log(err));
+        this.render();
     }
 
     getNews() {
@@ -48,14 +53,14 @@ class App extends Component {
     render() {
         return (
             <div>
-                <p className="resultado"><span>Las mejores noticias</span></p>
+                <p className="resultado"><span>{this.state.script}</span></p>
                 <div className="vitrina">
                     <div className="noticias">
                         {
                             this.state.news.map(notice => (
                                 <div className="noticia" key={notice._id} id={notice._id}>
                                     <div className="thumb">
-                                        <a href={notice.url} target='_blank'><img src={notice.imagen} alt="noticia" height="250"/></a>
+                                        <a href={notice.url} target='_blank'><img src={notice.imagen} alt="noticia" height="250" /></a>
                                     </div>
                                     <div className="informacion">
                                         <h3 className="tituloNoticias"><a href={notice.url} target='_blank'> {notice.titulo} </a></h3>
